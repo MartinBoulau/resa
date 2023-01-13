@@ -1,6 +1,11 @@
 # Resa - vehicule
-trello kanban invitation: https://trello.com/invite/b/HsstgwEn/ATTIbb21c2ff6dfcf0ea11d55001768612266702B637/resa-vehicule
+trello kanban invitation (Suivi du backlog):
 
+ https://trello.com/invite/b/HsstgwEn/ATTIbb21c2ff6dfcf0ea11d55001768612266702B637/resa-vehicule
+
+Lien document SCRUM (Suivi réunion SCRUM): 
+
+https://docs.google.com/document/d/1jzWGNnzuix2i1c3VxTxgcsdcfnePInaKWP68j39q2Eo/edit?usp=sharing 
 
 ## Getting started
 
