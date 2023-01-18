@@ -1,11 +1,14 @@
 # Resa - vehicule 
-trello kanban invitation (Suivi du backlog):
+Trello KANBAN invitation (Suivi du backlog):
 
  https://trello.com/invite/b/HsstgwEn/ATTIbb21c2ff6dfcf0ea11d55001768612266702B637/resa-vehicule
 
 Lien document SCRUM (Suivi réunion SCRUM): 
 
 https://docs.google.com/document/d/1jzWGNnzuix2i1c3VxTxgcsdcfnePInaKWP68j39q2Eo/edit?usp=sharing 
+
+Lien Maquette Figma:
+https://www.figma.com/file/yZ3n6Dh3PViBhDWJAEFhMh/AutoResa?node-id=1%3A2&t=9P61pSlhDyEeTVup-1
 
 ## Getting started
 
