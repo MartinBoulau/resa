@@ -11,31 +11,50 @@
 
 ## **Utilisation de GIT**
 
+### Cloner le projet dans un dossier
 ```bash
-# Cloner le projet dans un dossier
     cd existing_repo
     git clone https://gitlab.com/lpweb2/resa-vehicule.git
-
-# Pour récupérer le projet git (ex:branch dev)
+```
+### Pour **PULL** (ex: branch dev)
+```bash
     git checkout dev
     git pull origin/dev
+```
 
-# Pour créer une nouvelle branche
-    # Branche de feature
-        git checkout -b features/<nom_branche>
-    # Branche de release
-        git checkout -b release/<nom_branche>
-    # Branche de hotfix
-        git checkout -b hotfix/<nom_branche>
+### Pour **CRÉER** une nouvelle branche
+- Branche de **feature**
+```bash
+    git checkout -b features/<nom_branche>
+```
+- Branche de **release**
+```bash
+    git checkout -b release/<nom_branche>
+```
+- Branche de **hotfix**
+```bash
+    git checkout -b hotfix/<nom_branche>
+```
 
-# Pour push
+### Pour **PUSH**
+```bash
     git add .
     git commit -a -m "ton_commit"
+    # Pour une modification avant push
+        # [FIX] - commit message 
+    # Pour une modification après push
+        # [CHG] - commit message 
+    # Pour un ajout
+        # [ADD] - commit message 
+    # Pour une suppression
+        # [DEL] - commit message
     git push
+```
 
-# Pour merge une feature sur dev
+### Pour **MERGE** 
+```bash
     make new merge request sur git 
-    branch features/...
+    branch <nom_branche> 
     -> sur dev
     Assign SwaiiZ
 ```
