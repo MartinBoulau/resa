@@ -1,3 +1,5 @@
 ./Documents
 **.env
-data
+data/web/api/*
+data/web/back/*
+data/mysql/
