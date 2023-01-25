@@ -1,0 +1,76 @@
+version: '3'
+
+services:
+  php:
+    container_name: symfony-php
+    hostname: symfony-php
+    build: ./data/web/back
+    restart: "no"
+    ports:
+      - ${PHP_PORT}:8000
+    volumes:
+      - ./data/web/back:/app
+    networks:
+      - php_api
+
+  api:
+    container_name: symfony-api
+    hostname: symfony-php
+    build: ./data/web/api
+    restart: "no"
+    depends_on: 
+      - mysql
+    ports:
+      - ${API_PORT}:8000
+    volumes:
+      - ./data/web/api:/app
+    networks:
+      - api_db
+      - php_api
+  
+  auth:
+    container_name: auth
+    image: bigpapoo/myslim
+    restart: unless-stopped
+    ports:
+        - ${WS_PORT}:80
+    environment:
+        - docker="true"
+    volumes:
+        - ./data/web/auth:/var/www/html
+    networks:
+      - auth_db
+
+  mysql:
+    container_name: mysql
+    image: mysql:5.7
+    restart: always
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+    env_file:
+      - .env
+    environment:
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+    networks:
+      - api_db
+      - pma_db
+      - auth_db
+
+  phpmyadmin:
+    container_name: phpmyadmin
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - ${PMA_PORT}:80
+    environment:
+      - PMA_HOST=${PMA_HOST}
+    networks:
+      - pma_db
+
+networks:
+  api_db:
+  php_api:
+  pma_db:
+  auth_db:
