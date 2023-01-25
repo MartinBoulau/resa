@@ -1,7 +1,7 @@
 <?php
-    $database = 'ws_demo';
-    $user = 'root';
-    $passwd = '2020+Lannion';
+    $database = 'resa_vehicule';
+    $user = 'batm';
+    $passwd = 'batm-res4!';
     $host = 'mysql';
     $dsn="mysql:dbname=".$database.";host=".$host ;
     try{

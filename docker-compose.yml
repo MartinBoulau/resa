@@ -5,11 +5,9 @@ services:
     container_name: symfony-php
     hostname: symfony-php
     build: ./data/web/back
-    restart: "no" # unless-stopped
-    depends_on: 
-      - mysql
+    restart: "no"
     ports:
-      - ${PHP_PORT}:80
+      - ${PHP_PORT}:8000
     volumes:
       - ./data/web/back:/app
     networks:
@@ -19,11 +17,11 @@ services:
     container_name: symfony-api
     hostname: symfony-php
     build: ./data/web/api
-    restart: "no" # unless-stopped
+    restart: "no"
     depends_on: 
       - mysql
     ports:
-      - ${API_PORT}:80
+      - ${API_PORT}:8000
     volumes:
       - ./data/web/api:/app
     networks:
@@ -31,7 +29,8 @@ services:
       - php_api
   
   auth:
-    image: shinsenter/slim:latest
+    container_name: auth
+    image: bigpapoo/myslim
     restart: unless-stopped
     ports:
         - ${WS_PORT}:80
@@ -44,8 +43,8 @@ services:
 
   mysql:
     container_name: mysql
-    image: mysql:8.0
-    restart: "no" # unless-stopped
+    image: mysql:5.7
+    restart: always
     volumes:
       - ./data/mysql:/var/lib/mysql
     env_file:
@@ -67,8 +66,6 @@ services:
       - ${PMA_PORT}:80
     environment:
       - PMA_HOST=${PMA_HOST}
-      - PMA_USER=${MYSQL_USER}
-      - PMA_PASSWORD=${MYSQL_PASSWORD}
     networks:
       - pma_db
 
