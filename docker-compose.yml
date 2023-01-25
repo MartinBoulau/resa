@@ -1,0 +1,79 @@
+version: '3'
+
+services:
+  php:
+    container_name: symfony-php
+    hostname: symfony-php
+    build: ./data/web/back
+    restart: "no" # unless-stopped
+    depends_on: 
+      - mysql
+    ports:
+      - ${PHP_PORT}:80
+    volumes:
+      - ./data/web/back:/app
+    networks:
+      - php_api
+
+  api:
+    container_name: symfony-api
+    hostname: symfony-php
+    build: ./data/web/api
+    restart: "no" # unless-stopped
+    depends_on: 
+      - mysql
+    ports:
+      - ${API_PORT}:80
+    volumes:
+      - ./data/web/api:/app
+    networks:
+      - api_db
+      - php_api
+  
+  auth:
+    image: shinsenter/slim:latest
+    restart: unless-stopped
+    ports:
+        - ${WS_PORT}:80
+    environment:
+        - docker="true"
+    volumes:
+        - ./data/web/auth:/var/www/html
+    networks:
+      - auth_db
+
+  mysql:
+    container_name: mysql
+    image: mysql:8.0
+    restart: "no" # unless-stopped
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+    env_file:
+      - .env
+    environment:
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+    networks:
+      - api_db
+      - pma_db
+      - auth_db
+
+  phpmyadmin:
+    container_name: phpmyadmin
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - ${PMA_PORT}:80
+    environment:
+      - PMA_HOST=${PMA_HOST}
+      - PMA_USER=${MYSQL_USER}
+      - PMA_PASSWORD=${MYSQL_PASSWORD}
+    networks:
+      - pma_db
+
+networks:
+  api_db:
+  php_api:
+  pma_db:
+  auth_db:
