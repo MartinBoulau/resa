@@ -1,5 +1,7 @@
 ./Documents
 **.env
 data/web/api/*
+!data/web/api/Dockerfile
 data/web/back/*
+!data/web/back/Dockerfile
 data/mysql/
