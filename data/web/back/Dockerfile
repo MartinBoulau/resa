@@ -24,6 +24,9 @@ RUN docker-php-ext-install pdo pdo_mysql
 WORKDIR /app
 COPY . /app
 
+RUN composer update
+
+
 # Lancement du serveur local
 # --------------------------
 CMD [ "symfony", "server:start", "--port=8000", "--no-tls" ]
