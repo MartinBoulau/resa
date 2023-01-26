@@ -6,8 +6,6 @@ CREATE TABLE `vehicules` (
 	`nb_places` INT NOT NULL,
 	`km` FLOAT NOT NULL,
 	`description` VARCHAR(255) NOT NULL,
-	`state` INT NOT NULL,
-	`is_available` BOOLEAN NOT NULL,
 	PRIMARY KEY (`id`)
 );
 
@@ -20,16 +18,9 @@ CREATE TABLE `reservations` (
 	`date_start_real` DATETIME,
 	`half_date_end` INT NOT NULL,
 	`date_end_real` DATETIME,
-	`km_start` FLOAT NOT NULL,
 	`km_end` FLOAT,
 	`description_issue` TEXT,
 	`nb_week` INT NOT NULL,
-	PRIMARY KEY (`id`)
-);
-
-CREATE TABLE `states` (
-	`id` INT NOT NULL AUTO_INCREMENT,
-	`label` VARCHAR(255) NOT NULL UNIQUE,
 	PRIMARY KEY (`id`)
 );
 
@@ -77,8 +68,6 @@ CREATE TABLE `issues` (
 	PRIMARY KEY (`id`)
 );
 
-ALTER TABLE `vehicules` ADD CONSTRAINT `vehicules_fk0` FOREIGN KEY (`state`) REFERENCES `states`(`id`);
-
 ALTER TABLE `reservations` ADD CONSTRAINT `reservations_fk0` FOREIGN KEY (`id_vehicule`) REFERENCES `vehicules`(`id`);
 
 ALTER TABLE `reservations` ADD CONSTRAINT `reservations_fk1` FOREIGN KEY (`id_person`) REFERENCES `persons`(`id`);
@@ -98,12 +87,3 @@ ALTER TABLE `vehicules_days` ADD CONSTRAINT `vehicules_days_fk1` FOREIGN KEY (`i
 ALTER TABLE `issues` ADD CONSTRAINT `issues_fk0` FOREIGN KEY (`id_vehicule`) REFERENCES `vehicules`(`id`);
 
 ALTER TABLE `issues` ADD CONSTRAINT `issues_fk1` FOREIGN KEY (`id_reservation`) REFERENCES `reservations`(`id`);
-
-
-
-
-
-
-
-
-
