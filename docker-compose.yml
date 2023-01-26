@@ -1,45 +1,44 @@
 version: '3'
 
 services:
-  php:
-    container_name: symfony-php
+
+  back:
+    container_name: symfony-back
     hostname: symfony-php
     build: ./data/web/back
-    restart: "no"
-    ports:
-      - ${PHP_PORT}:8000
-    volumes:
-      - ./data/web/back:/app
-    networks:
-      - php_api
-
-  api:
-    container_name: symfony-api
-    hostname: symfony-php
-    build: ./data/web/api
     restart: "no"
     depends_on: 
       - mysql
     ports:
-      - ${API_PORT}:8000
+      - ${BACK_PORT}:8000
     volumes:
-      - ./data/web/api:/app
+      - ./data/web/back:/app
     networks:
-      - api_db
-      - php_api
-  
+      - back_db
+
   auth:
-    container_name: auth
-    image: bigpapoo/myslim
-    restart: unless-stopped
+    container_name: symfony-auth
+    hostname: symfony-php
+    build: ./data/web/auth
+    restart: "no"
+    depends_on: 
+      - mysql
     ports:
-        - ${WS_PORT}:80
-    environment:
-        - docker="true"
+      - ${AUTH_PORT}:8000
     volumes:
-        - ./data/web/auth:/var/www/html
+      - ./data/web/auth:/app
     networks:
       - auth_db
+  
+  react:
+    container_name: react
+    build: ./data/web/front
+    command: npm start
+    volumes:
+      - ./data/web/front/:/usr/app
+      - /usr/app/node_modules
+    ports:
+      - ${FRONT_PORT}:3000  
 
   mysql:
     container_name: mysql
@@ -49,6 +48,7 @@ services:
       - ./data/mysql:/var/lib/mysql
       - "./scripts/database.sql:/docker-entrypoint-initdb.d/1.sql"
       - "./scripts/user.sql:/docker-entrypoint-initdb.d/2.sql"
+      - "./scripts/triggers.sql:/docker-entrypoint-initdb.d/3.sql"
     env_file:
       - .env
     environment:
@@ -57,7 +57,7 @@ services:
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
     networks:
-      - api_db
+      - back_db
       - pma_db
       - auth_db
 
@@ -73,6 +73,6 @@ services:
 
 networks:
   api_db:
-  php_api:
+  back_db:
   pma_db:
   auth_db:

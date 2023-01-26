@@ -32,9 +32,13 @@ docker exec -it symfony-api composer update
 ```
 ### Linux
 ```bash
-sed -i -e 's/\r$//' launch.sh
 ./launch.sh
 ```
+- Si une erreur bash apparaît /bin/bash^M 
+    ```bash
+    sed -i -e 's/\r$//' launch.sh
+    ./launch.sh
+    ```
 - Si une erreur bash subsiste vérifier que le **PATH** vers bash est le bon dans le script 
     ```bash
     which bash

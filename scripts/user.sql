@@ -7,5 +7,6 @@ GRANT INSERT ON resa_vehicule.issues TO 'user_api'@'%';
 
 GRANT UPDATE ON resa_vehicule.reservations TO 'user_api'@'%';
 GRANT UPDATE ON resa_vehicule.vehicules TO 'user_api'@'%';
+GRANT UPDATE ON resa_vehicule.persons TO 'user_api'@'%';
 
 GRANT DELETE ON resa_vehicule.reservations TO 'user_api'@'%';
