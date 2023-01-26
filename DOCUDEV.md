@@ -43,6 +43,8 @@ sed -i -e 's/\r$//' launch.sh
 
 - Si une erreur de permission apparaît 
     ```bash
+    sudo sh ./launch.sh
+    OU
     sudo ./launch.sh
     ```
 
