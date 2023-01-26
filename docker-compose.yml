@@ -47,6 +47,8 @@ services:
     restart: always
     volumes:
       - ./data/mysql:/var/lib/mysql
+      - "./scripts/database.sql:/docker-entrypoint-initdb.d/1.sql"
+      - "./scripts/user.sql:/docker-entrypoint-initdb.d/2.sql"
     env_file:
       - .env
     environment:
