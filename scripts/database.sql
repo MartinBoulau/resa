@@ -41,8 +41,8 @@ CREATE TABLE `persons` (
 	`tel` VARCHAR(255) NOT NULL,
 	`mail` VARCHAR(255) NOT NULL UNIQUE,
 	`password` VARCHAR(255) NOT NULL,
-	'token' VARCHAR(16) NULL,
-	'token_expire' DATETIME NULL,
+	`token` VARCHAR(16),
+	`token_expire` DATETIME,
 	PRIMARY KEY (`id`)
 );
 
