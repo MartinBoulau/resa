@@ -30,7 +30,7 @@ flowchart
 ```
 
 ## MCD
-![image](assets_docs/mcd.png)
+![image](Documents/mcd.png)
 
 
 ## Ports
