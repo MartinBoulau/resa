@@ -23,12 +23,12 @@ docker-compose up -d
 ### Windows
 ```docker
 # Backend
-docker exec -it symfony-php composer install
-docker exec -it symfony-php composer update
+docker exec -it symfony-back composer install
+docker exec -it symfony-back composer update
 
-# API
-docker exec -it symfony-api composer install
-docker exec -it symfony-api composer update
+# Auth
+docker exec -it symfony-auth composer install
+docker exec -it symfony-auth composer update
 ```
 ### Linux
 ```bash
