@@ -1,11 +1,32 @@
 # **Get Started**
 
 ## **Summary** 
+- [Project](#project)
+    - [Diagram](#diagram)
+    - [MCD](#mcd)
+    - [Ports](#ports)
 - [Clone project](#clone-project) 
 - [Launch docker-compose](#build--up)
 - [Composer Install & Update](#composer-install--update)
     - [Windows](#windows)
     - [Linux](#linux)
+
+## **Project**
+
+### Diagram
+![image](assets_docs/diagram.png)
+
+### MCD
+![image](assets_docs/mcd.png)
+
+
+### Ports
+| Container | Port | URL |
+| --------- | ---- | --- |
+| React | <span style="color:white">**3000**</span> | [localhost:3000/](http://localhost:3000/) |
+| Symfony Back & API | <span style="color:white">**9080**</span> | [localhost:9080/](http://localhost:9080/) |
+| Symfony Authentification | <span style="color:white">**9081**</span> | [localhost:9081/](http://localhost:9081/) |
+| phpMyAdmin | <span style="color:white">**9082**</span> | [localhost:9082/](http://localhost:9082/) |
 
 ## **Clone project**
 ```
@@ -13,7 +34,7 @@ git clone https://gitlab.com/lpweb2/resa-vehicule.git
 cd resa-vehicule
 ```
 ## **Build & Up**
-```docker
+```
 docker-compose build
 docker-compose up -d
 ```
@@ -48,7 +69,9 @@ docker exec -it symfony-auth composer update
 - Si une erreur de permission apparaît 
     ```bash
     sudo sh ./launch.sh
-    OU
+    ```
+    **OU**
+    ```bash
     sudo ./launch.sh
     ```
 
