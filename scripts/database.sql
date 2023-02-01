@@ -44,7 +44,6 @@ CREATE TABLE `unavailables` (
 	`id_vehicule` INT NOT NULL,
 	`date_start` DATETIME NOT NULL,
 	`date_end` DATETIME,
-	`nb_half_day` INT,
 	`description` TEXT NOT NULL,
 	`undetermined` BOOLEAN NOT NULL DEFAULT '0',
 	PRIMARY KEY (`id`)
