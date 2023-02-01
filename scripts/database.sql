@@ -14,13 +14,15 @@ CREATE TABLE `reservations` (
 	`id_vehicule` INT NOT NULL,
 	`id_person` INT NOT NULL,
 	`id_person_resa` INT NOT NULL,
-	`half_date_start` INT NOT NULL,
+	`date_start` DATETIME NOT NULL,
 	`date_start_real` DATETIME,
-	`half_date_end` INT NOT NULL,
+	`date_end` DATETIME NOT NULL,
 	`date_end_real` DATETIME,
 	`km_end` FLOAT,
 	`description_issue` TEXT,
 	`nb_week` INT NOT NULL,
+	`cancel` BOOLEAN NOT NULL DEFAULT '0',
+	`date_cancel` DATETIME,
 	PRIMARY KEY (`id`)
 );
 
@@ -32,18 +34,18 @@ CREATE TABLE `persons` (
 	`tel` VARCHAR(255) NOT NULL,
 	`mail` VARCHAR(255) NOT NULL UNIQUE,
 	`password` VARCHAR(255) NOT NULL,
-	`token` VARCHAR(16),
+	`token` VARCHAR(255),
 	`token_expire` DATETIME,
 	PRIMARY KEY (`id`)
 );
 
-CREATE TABLE `unavaiables` (
+CREATE TABLE `unavailables` (
 	`id` INT NOT NULL AUTO_INCREMENT,
 	`id_vehicule` INT NOT NULL,
 	`date_start` DATETIME NOT NULL,
 	`date_end` DATETIME,
-	`nb_half_day` INT NOT NULL,
 	`description` TEXT NOT NULL,
+	`undetermined` BOOLEAN NOT NULL DEFAULT '0',
 	PRIMARY KEY (`id`)
 );
 
@@ -74,11 +76,7 @@ ALTER TABLE `reservations` ADD CONSTRAINT `reservations_fk1` FOREIGN KEY (`id_pe
 
 ALTER TABLE `reservations` ADD CONSTRAINT `reservations_fk2` FOREIGN KEY (`id_person_resa`) REFERENCES `persons`(`id`);
 
-ALTER TABLE `reservations` ADD CONSTRAINT `reservations_fk3` FOREIGN KEY (`half_date_start`) REFERENCES `days`(`id`);
-
-ALTER TABLE `reservations` ADD CONSTRAINT `reservations_fk4` FOREIGN KEY (`half_date_end`) REFERENCES `days`(`id`);
-
-ALTER TABLE `unavaiables` ADD CONSTRAINT `unavaiables_fk0` FOREIGN KEY (`id_vehicule`) REFERENCES `vehicules`(`id`);
+ALTER TABLE `unavailables` ADD CONSTRAINT `unavailables_fk0` FOREIGN KEY (`id_vehicule`) REFERENCES `vehicules`(`id`);
 
 ALTER TABLE `vehicules_days` ADD CONSTRAINT `vehicules_days_fk0` FOREIGN KEY (`id_day`) REFERENCES `days`(`id`);
 
