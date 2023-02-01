@@ -1,22 +1,23 @@
 # **Get Started**
 
-## **Summary** 
+# **Summary** 
 
 - [**Get Started**](#get-started)
-  - [**Summary**](#summary)
-  - [**Project**](#project)
-    - [Diagram](#diagram)
-    - [MCD](#mcd)
-    - [Ports](#ports)
-  - [**Clone project**](#clone-project)
-  - [**Build \& Up**](#build--up)
-  - [**Composer Install \& Update**](#composer-install--update)
-    - [Windows](#windows)
-    - [Linux](#linux)
+- [**Summary**](#summary)
+- [**Project**](#project)
+  - [Diagram](#diagram)
+  - [MCD](#mcd)
+  - [Ports](#ports)
+- [**Clone project**](#clone-project)
+- [**Build \& Up**](#build--up)
+- [**Composer Install \& Update**](#composer-install--update)
+  - [Windows](#windows)
+  - [Linux](#linux)
+  
 
-## **Project**
+# **Project**
 
-### Diagram
+## Diagram
 
 ```mermaid
 flowchart 
@@ -28,11 +29,11 @@ flowchart
     F[phpMyAdmin] --> id1[(resa-vehicule\n-\nMySql)]
 ```
 
-### MCD
+## MCD
 ![image](assets_docs/mcd.png)
 
 
-### Ports
+## Ports
 | Container | Port | URL |
 | --------- | ---- | --- |
 | React | <span style="color:white">**3000**</span> | [localhost:3000/](http://localhost:3000/) |
@@ -40,23 +41,23 @@ flowchart
 | Symfony Authentification | <span style="color:white">**9081**</span> | [localhost:9081/](http://localhost:9081/) |
 | phpMyAdmin | <span style="color:white">**9082**</span> | [localhost:9082/](http://localhost:9082/) |
 
-## **Clone project**
+# **Clone project**
 
 ```bash
 git clone https://gitlab.com/lpweb2/resa-vehicule.git
 cd resa-vehicule
 ```
 
-## **Build & Up**
+# **Build & Up**
 
 ```bash
 docker-compose build
 docker-compose up -d
 ```
 
-## **Composer Install & Update**
+# **Composer Install & Update**
 
-### Windows
+## Windows
 
 ```bash
 # Backend
@@ -68,7 +69,7 @@ docker exec -it symfony-auth composer install
 docker exec -it symfony-auth composer update
 ```
 
-### Linux
+## Linux
 
 ```bash
 ./launch.sh
