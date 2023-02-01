@@ -4,12 +4,13 @@ CREATE TRIGGER `Chiffrement SHA` BEFORE INSERT ON `persons`
 	if LENGTH(NEW.password) >= 8 THEN
     	SET NEW.password = SHA1(NEW.password);
     ELSE
-    	SIGNAL SQLSTATE '45001' SET MESSAGE_TEXT = 'Length password < 8';
+    	SIGNAL SQLSTATE `45001` SET MESSAGE_TEXT = `Length password < 8`;
     END IF;
 END$$
 
 CREATE TRIGGER `Update Km Vehicule` AFTER UPDATE ON `reservations`
  FOR EACH ROW BEGIN
+<<<<<<< scripts/triggers.sql
     IF NEW.cancel = 0 THEN
         IF NEW.date_end_real IS NOT NULL and NEW.km_end IS NOT NULL = 0 THEN
             UPDATE vehicules
