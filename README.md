@@ -53,6 +53,8 @@
         # [ADD] - commit message 
     # Pour une suppression
         # [DEL] - commit message
+    # Pour rename le commit
+    git commit --amend
     git push
 ```
 
