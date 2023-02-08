@@ -16,20 +16,6 @@ services:
     networks:
       - back_db
 
-  auth:
-    container_name: symfony-auth
-    hostname: symfony-auth
-    build: ./data/web/auth
-    restart: "no"
-    depends_on: 
-      - mysql
-    ports:
-      - ${AUTH_PORT}:8000
-    volumes:
-      - ./data/web/auth:/app
-    networks:
-      - auth_db
-  
   react:
     container_name: react
     build: ./data/web/front
@@ -60,7 +46,6 @@ services:
     networks:
       - back_db
       - pma_db
-      - auth_db
 
   phpmyadmin:
     container_name: phpmyadmin
@@ -76,4 +61,3 @@ networks:
   api_db:
   back_db:
   pma_db:
-  auth_db:
