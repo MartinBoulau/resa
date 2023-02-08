@@ -1,12 +1,12 @@
 DELIMITER $$
-CREATE TRIGGER `Chiffrement SHA` BEFORE INSERT ON `persons`
- FOR EACH ROW BEGIN
-	if LENGTH(NEW.password) >= 8 THEN
-    	SET NEW.password = SHA1(NEW.password);
-    ELSE
-    	SIGNAL SQLSTATE `45001` SET MESSAGE_TEXT = `Length password < 8`;
-    END IF;
-END$$
+-- CREATE TRIGGER `Chiffrement SHA` BEFORE INSERT ON `persons`
+--  FOR EACH ROW BEGIN
+-- 	if LENGTH(NEW.password) >= 8 THEN
+--     	SET NEW.password = SHA1(NEW.password);
+--     ELSE
+--     	SIGNAL SQLSTATE `45001` SET MESSAGE_TEXT = `Length password < 8`;
+--     END IF;
+-- END$$
 
 CREATE TRIGGER `Update Km Vehicule` AFTER UPDATE ON `reservations`
  FOR EACH ROW BEGIN
