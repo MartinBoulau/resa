@@ -18,11 +18,13 @@ class Reservations
     #[ORM\JoinColumn(nullable: false)]
     private ?Vehicules $id_vehicule = null;
 
-    #[ORM\Column]
-    private ?int $id_person = null;
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Persons $id_person = null;
 
-    #[ORM\Column]
-    private ?int $id_person_resa = null;
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Persons $id_person_resa = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $date_start = null;
@@ -65,24 +67,24 @@ class Reservations
         return $this;
     }
 
-    public function getIdPerson(): ?int
+    public function getIdPerson(): ?Persons
     {
         return $this->id_person;
     }
 
-    public function setIdPerson(int $id_person): self
+    public function setIdPerson(?Persons $id_person): self
     {
         $this->id_person = $id_person;
 
         return $this;
     }
 
-    public function getIdPersonResa(): ?int
+    public function getIdPersonResa(): ?Persons
     {
         return $this->id_person_resa;
     }
 
-    public function setIdPersonResa(int $id_person_resa): self
+    public function setIdPersonResa(?Persons $id_person_resa): self
     {
         $this->id_person_resa = $id_person_resa;
 
