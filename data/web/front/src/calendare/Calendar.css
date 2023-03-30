@@ -1,0 +1,138 @@
+
+#modale1 {
+    visibility: hidden;
+    position: absolute;
+    top: 50%;
+    z-index: 1000;
+    width: 900px;
+    height: 350px;
+    background-color: #fffff1;
+    font-weight: bold;
+    font-size: 15px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    border: 1px #333333 solid;
+  }
+
+  #modale1 button{
+    width: 100px;
+    height: 30px;
+    border: #333333 solid 1px;
+    border-radius: 5px;
+  }
+
+  #pop_header{
+    text-align: center;
+    color: #fffff1;
+    background-color: #333333;
+    margin: 0px;
+    height: 50px;
+  }
+
+  #pop_header h2{
+    margin: 0px;
+    padding-top: 10px;
+  }
+
+  #menu {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 50px;
+    grid-row-gap: 0px;
+    margin-top: 10px;
+    }
+
+    #modele{
+        text-align: center;
+    }
+
+    #resa{
+        background: linear-gradient(100deg, #333333 64%, #fffff1 97%);
+        color:#fffff1;
+    }
+
+    #resa h4 {
+        margin-top: 10px;
+        margin-bottom: 0px;
+        margin-left: 10px;
+    }
+
+    #description{
+        text-align: end;
+        color:#fffff1;
+        background: linear-gradient(-70deg, #333333 64%, #fffff1 97%);
+    }
+
+    #description h4 {
+        margin-top: 10px;
+        margin-bottom: 0px;
+        margin-right: 10px;
+    }
+
+    #formulaire {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 1fr;
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        margin-top: 20px;
+    }
+
+    .description{
+    padding-left: 60px;
+    padding-right: 20px;
+    border-left: solid 1px #333333;
+    }
+
+    .information{
+        padding-left: 20px; 
+        padding-top: 20px;
+    }
+
+    #align_end{
+        text-align: end;
+    }
+
+    #annuler{
+        background-color: #ed1c24;
+        margin-top: 30px;
+        margin-right: 10px;
+    }
+
+    #valider{
+        background-color: #7fc37e;
+        margin-top: 30px;
+        margin-left: 10px;
+    }
+
+    #modale2 {
+        visibility: hidden;
+        position: absolute;
+        z-index: 1000;
+        top: 50%;
+        width: 900px;
+        height: 350px;
+        background-color: #fffff1;
+        font-weight: bold;
+        font-size: 15px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        border: 1px #333333 solid;
+        text-align: center;
+      }
+    
+      #modale2 button{
+        width: 100px;
+        height: 30px;
+        border: #333333 solid 1px;
+        border-radius: 5px;
+      }
+
+      #modale2 menu{
+        text-align: left;
+      }

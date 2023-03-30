@@ -3,7 +3,7 @@ import './LeftSideBare.css';
 
 function LeftSideBare() {
     return (
-        <div>
+        <div className='content'>
             <form action="post">
                 <input type="text" id="recherche" name="recherche"/>
                     <br></br>
@@ -51,6 +51,11 @@ function LeftSideBare() {
             </div>
         </div>
     )
+}
+
+
+function addCarFormDb(){
+
 }
 
 export default LeftSideBare

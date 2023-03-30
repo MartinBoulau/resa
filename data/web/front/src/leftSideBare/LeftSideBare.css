@@ -1,6 +1,5 @@
 .liste{
     background-color: #525252;
     text-align: center;
-    overflow:scroll;
-    height: 100%;
+    overflow: scroll;
 }
