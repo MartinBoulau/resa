@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Unavailables;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\ORM\Query\Expr;
 
 /**
  * @extends ServiceEntityRepository<Unavailables>
@@ -37,6 +38,20 @@ class UnavailablesRepository extends ServiceEntityRepository
         if ($flush) {
             $this->getEntityManager()->flush();
         }
+    }
+
+    public function findByWeekVehUnavailable($id_v, $nb_week)
+    {
+        // dd($id_v,$nb_week);
+        return $this->createQueryBuilder('u')
+            ->select('u, v')
+            ->innerJoin('App\Entity\Vehicules', 'v', Expr\Join::WITH, 'v.id = u.vehicule')
+            // ->innerJoin('App\Entity\Persons', 'p', Expr\Join::WITH, 'p.id = r.person')
+            // ->innerJoin('App\Entity\Persons', 'pr', Expr\Join::WITH, 'pr.id = r.person_resa')
+            ->where('u.vehicule = ' . $id_v)
+            // ->where('r.nb_week = ' . $nb_week)
+            ->getQuery()
+            ->getScalarResult();
     }
 
 //    /**

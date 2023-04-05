@@ -32,7 +32,7 @@ services:
     restart: always
     volumes:
       - ./data/mysql:/var/lib/mysql
-      - "./scripts/database.sql:/docker-entrypoint-initdb.d/1.sql"
+      # - "./scripts/database.sql:/docker-entrypoint-initdb.d/1.sql"
       - "./scripts/user.sql:/docker-entrypoint-initdb.d/2.sql"
       - "./scripts/triggers.sql:/docker-entrypoint-initdb.d/3.sql"
       - "./scripts/data.sql:/docker-entrypoint-initdb.d/4.sql"

@@ -15,37 +15,37 @@ class VehiculesDays
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Days $id_day = null;
+    private ?Days $day = null;
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Vehicules $id_vehicule = null;
+    private ?Vehicules $vehicule = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getIdDay(): ?Days
+    public function getDay(): ?Days
     {
-        return $this->id_day;
+        return $this->day;
     }
 
-    public function setIdDay(?Days $id_day): self
+    public function setDay(?Days $day): self
     {
-        $this->id_day = $id_day;
+        $this->day = $day;
 
         return $this;
     }
 
-    public function getIdVehicule(): ?Vehicules
+    public function getVehicule(): ?Vehicules
     {
-        return $this->id_vehicule;
+        return $this->vehicule;
     }
 
-    public function setIdVehicule(?Vehicules $id_vehicule): self
+    public function setVehicule(?Vehicules $vehicule): self
     {
-        $this->id_vehicule = $id_vehicule;
+        $this->vehicule = $vehicule;
 
         return $this;
     }

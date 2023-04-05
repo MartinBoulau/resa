@@ -16,15 +16,15 @@ class Reservations
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Vehicules $id_vehicule = null;
+    private ?Vehicules $vehicule = null;
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Persons $id_person = null;
+    private ?Persons $person = null;
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Persons $id_person_resa = null;
+    private ?Persons $person_resa = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $date_start = null;
@@ -55,38 +55,38 @@ class Reservations
         return $this->id;
     }
 
-    public function getIdVehicule(): ?Vehicules
+    public function getVehicule(): ?Vehicules
     {
-        return $this->id_vehicule;
+        return $this->vehicule;
     }
 
-    public function setIdVehicule(?Vehicules $id_vehicule): self
+    public function setVehicule(?Vehicules $vehicule): self
     {
-        $this->id_vehicule = $id_vehicule;
+        $this->vehicule = $vehicule;
 
         return $this;
     }
 
-    public function getIdPerson(): ?Persons
+    public function getPerson(): ?Persons
     {
-        return $this->id_person;
+        return $this->person;
     }
 
-    public function setIdPerson(?Persons $id_person): self
+    public function setPerson(?Persons $person): self
     {
-        $this->id_person = $id_person;
+        $this->person = $person;
 
         return $this;
     }
 
-    public function getIdPersonResa(): ?Persons
+    public function getPersonResa(): ?Persons
     {
-        return $this->id_person_resa;
+        return $this->person_resa;
     }
 
-    public function setIdPersonResa(?Persons $id_person_resa): self
+    public function setPersonResa(?Persons $person_resa): self
     {
-        $this->id_person_resa = $id_person_resa;
+        $this->person_resa = $person_resa;
 
         return $this;
     }

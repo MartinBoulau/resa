@@ -5,6 +5,8 @@ namespace App\Repository;
 use App\Entity\Reservations;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\ORM\Query\Expr;
+
 
 /**
  * @extends ServiceEntityRepository<Reservations>
@@ -37,6 +39,20 @@ class ReservationsRepository extends ServiceEntityRepository
         if ($flush) {
             $this->getEntityManager()->flush();
         }
+    }
+
+    public function findByWeekVehReservation($id_v, $nb_week)
+    {
+        // dd($id_v,$nb_week);
+        return $this->createQueryBuilder('r')
+            ->select('r, v, p, pr')
+            ->innerJoin('App\Entity\Vehicules', 'v', Expr\Join::WITH, 'v.id = r.vehicule')
+            ->innerJoin('App\Entity\Persons', 'p', Expr\Join::WITH, 'p.id = r.person')
+            ->innerJoin('App\Entity\Persons', 'pr', Expr\Join::WITH, 'pr.id = r.person_resa')
+            ->where('r.vehicule = ' . $id_v, 'r.nb_week = ' . $nb_week)
+            // ->where('r.nb_week = ' . $nb_week)
+            ->getQuery()
+            ->getScalarResult();
     }
 
 //    /**
