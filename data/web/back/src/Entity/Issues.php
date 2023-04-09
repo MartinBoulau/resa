@@ -16,11 +16,11 @@ class Issues
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Vehicules $id_vehicule = null;
+    private ?Vehicules $vehicule = null;
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Reservations $id_reservation = null;
+    private ?Reservations $reservation = null;
 
     #[ORM\Column(type: Types::TEXT)]
     private ?string $issue = null;
@@ -30,26 +30,26 @@ class Issues
         return $this->id;
     }
 
-    public function getIdVehicule(): ?Vehicules
+    public function getVehicule(): ?Vehicules
     {
-        return $this->id_vehicule;
+        return $this->vehicule;
     }
 
-    public function setIdVehicule(?Vehicules $id_vehicule): self
+    public function setVehicule(?Vehicules $vehicule): self
     {
-        $this->id_vehicule = $id_vehicule;
+        $this->vehicule = $vehicule;
 
         return $this;
     }
 
-    public function getIdReservation(): ?Reservations
+    public function getReservation(): ?Reservations
     {
-        return $this->id_reservation;
+        return $this->reservation;
     }
 
-    public function setIdReservation(?Reservations $id_reservation): self
+    public function setReservation(?Reservations $reservation): self
     {
-        $this->id_reservation = $id_reservation;
+        $this->reservation = $reservation;
 
         return $this;
     }

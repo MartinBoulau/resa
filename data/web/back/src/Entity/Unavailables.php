@@ -16,7 +16,7 @@ class Unavailables
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Vehicules $id_vehicule = null;
+    private ?Vehicules $vehicule = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $date_start = null;
@@ -35,14 +35,14 @@ class Unavailables
         return $this->id;
     }
 
-    public function getIdVehicule(): ?Vehicules
+    public function getVehicule(): ?Vehicules
     {
-        return $this->id_vehicule;
+        return $this->vehicule;
     }
 
-    public function setIdVehicule(?Vehicules $id_vehicule): self
+    public function setVehicule(?Vehicules $vehicule): self
     {
-        $this->id_vehicule = $id_vehicule;
+        $this->vehicule = $vehicule;
 
         return $this;
     }
